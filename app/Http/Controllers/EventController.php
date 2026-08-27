@@ -9,8 +9,17 @@ class EventController extends Controller
 {
     public function index()
     {
-        $events = Event::all();
-        return view('welcome', ['events' => $events]);
+        $search = request('search');
+
+        if($search)
+        {
+            $events = Event::where([
+                ['tittle', 'like', '%' .$search. '%' ]
+            ])->get();
+        }
+        else
+            $events = Event::all();
+        return view('welcome', ['events' => $events, 'search' => $search]);
     }
 
     public function create()
@@ -23,9 +32,11 @@ class EventController extends Controller
         $event = new Event;
         
         $event->tittle = $request->title;
+        $event->date = $request->date;
         $event->description = $request->description;
         $event->city = $request->city;
         $event->private = $request->private;
+        $event->items = $request->items;
         
 
         //Upload Image
