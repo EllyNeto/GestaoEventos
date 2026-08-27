@@ -18,6 +18,16 @@ header {
   margin: 0;
 }
 
+.msg{
+
+  background-color:rgb(84, 255, 84);
+  color:#28c414;
+  border: 1px solid  #C3E6CB;
+  width: 100%;
+  margin-bottom: 0;
+  text-align:center;
+  padding: 10px;
+}
 .container-fluid {
   padding: 0;
 }
@@ -120,6 +130,21 @@ header {
 .card-participants {
   font-size: 14px;
   color: #757575;
+}
+
+/* Event create page */
+#event-create-container {
+  padding: 30px
+}
+
+#event-create-container label {
+  font-weight: bold;
+}
+
+#event-create-container input,
+#event-create-container select,
+#event-create-container textarea {
+  font-size: 12px;
 }
 
 /* footer */
