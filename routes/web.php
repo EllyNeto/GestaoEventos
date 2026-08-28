@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +18,14 @@ use App\Http\Controllers\ProductController;
 */
 
 Route::get('/', [EventController::class, 'index']);
-
-Route::get('/events/create', [EventController::class, 'create']);
-
+Route::get('/events/create', [EventController::class, 'create'])->middleware('auth');
 Route::get('/events/{id}', [EventController::class, 'show']);
-
+Route::get('/events/edit/{id}', [EventController::class, 'edit'])->middleware('auth');
+Route::put('/events/update/{id}', [EventController::class, 'update'])->middleware('auth');
 Route::post('/events', [EventController::class, 'store']);
+Route::delete('/events/{id}', [EventController::class, 'destroy'])->middleware('auth');
+
+Route::get('/dashboard', [EventController::class, 'dashboard'])->middleware('auth');
 
 Route::get('/produtos',[ProductController::class, 'index']);
 
@@ -31,3 +34,7 @@ Route::get('/produtos/{id}', [ProductController::class, 'show']);
 Route::get('/contact', [ContactController::class, 'index']);
 
 Route::get('/contact/create', [ContactController::class, 'create']);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
