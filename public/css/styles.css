@@ -3,20 +3,6 @@
   font-family: 'Manrope';
 }
 
-.warning {
-  background-color: #e9e1a4;
-  color: rgb(246, 246, 14);
-  border: 1px solid #a5b316;
-  width: 100%;
-  margin-bottom: 0;
-  text-align: center;
-  padding: 10px;
-}
-/* General */
-* {
-  font-family: 'Roboto';
-}
-
 body {
   min-height: 100vh;
   padding-bottom: 100px;
