@@ -38,3 +38,6 @@ Route::get('/contact/create', [ContactController::class, 'create']);
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/events/join/{id}', [EventController::class, 'joinEvent'])->middleware('auth');
+Route::delete('/events/leave/{id}', [EventController::class, 'leaveEvent'])->middleware('auth');

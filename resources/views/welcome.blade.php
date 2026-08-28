@@ -26,7 +26,11 @@
             <div class="card-body">
                 <p class="card-date"> {{date('d/m/Y', strtotime($event->date))}}</p>
                 <h5 class="card-tittle">{{$event->tittle}}</h5>
-                <p class="card-participants"> X Participantes</p>
+                @if(count($event->users) < 2 && count($event->users) > 0)
+                    <p class="events-participants"><ion-icon name="people-outline"></ion-icon> {{ count($event->users) }} Participante</p>
+                @else
+                    <p class="events-participants"><ion-icon name="people-outline"></ion-icon> {{ count($event->users) }} Participantes</p>
+                @endif
                 <a href="/events/{{$event->id}}" class="btn btn-primary"> Saber mais</a>
             </div>
         </div>

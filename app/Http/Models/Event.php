@@ -8,7 +8,7 @@ class Event extends Model
 {
     protected $table = 'events';
 
-    protected $fillabel=[
+    protected $fillable=[
         "tittle",
         "description",
         "city",
@@ -26,8 +26,13 @@ class Event extends Model
 
     public function user()
     {
-        return $this->belongTo('App\Http\Models\User');
+        return $this->belongsTo('App\Http\Models\User');
     }
 
     protected $guarded= [];
+
+    public function users()
+    {
+        return $this->belongsToMany('App\Http\Models\User');
+    }
 }
