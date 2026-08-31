@@ -27,14 +27,6 @@ Route::delete('/events/{id}', [EventController::class, 'destroy'])->middleware('
 
 Route::get('/dashboard', [EventController::class, 'dashboard'])->middleware('auth');
 
-Route::get('/produtos',[ProductController::class, 'index']);
-
-Route::get('/produtos/{id}', [ProductController::class, 'show']);
-
-Route::get('/contact', [ContactController::class, 'index']);
-
-Route::get('/contact/create', [ContactController::class, 'create']);
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
